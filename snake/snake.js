@@ -59,15 +59,6 @@ const Hero = {
     },
 }
 
-function startGame(){
-    canPressUp    = true;
-    canPressRight = true;
-    canPressDown  = true;
-    canPressLeft  = true;
-
-    Hero.heroInCenter();
-}
-
 window.addEventListener("keydown", (e) => {
     // console.log(e);
 
@@ -140,5 +131,14 @@ window.addEventListener("keydown", (e) => {
         canPressLeft  = false;
     };
 })
+
+function startGame(){
+    canPressUp    = true;
+    canPressRight = true;
+    canPressDown  = true;
+    canPressLeft  = true;
+
+    Hero.heroInCenter();
+}
 
 startGame();
