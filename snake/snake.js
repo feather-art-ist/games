@@ -10,6 +10,9 @@ Math.cbrt(); //кубический корень
 
 const FIELD = document.querySelector('.game');
 const TIME_BETWEEN_STEPS = 150; //ms
+const DIV_TILE = document.getElementById('template').content.cloneNode(true);
+
+let tailLength = 20; // also it is the score and also it is the starting length
 
 let canPressUp    = false,
     canPressRight = false,
@@ -29,7 +32,16 @@ const Hero = {
         this.element.style.left = '240px';
     },
 
+    getPositionTop: function () {
+        return getComputedStyle(this.element).top;
+    },
+
+    getPositionLeft: function () {
+        return getComputedStyle(this.element).left;
+    },
+
     moveUp: function (step = 20) {
+        Hero.createPartOfTail();
         if( (parseInt(getComputedStyle(this.element).top) - step) < 0 ){
             this.element.style.top = '480px';
         }else{
@@ -37,6 +49,7 @@ const Hero = {
         };
     },
     moveRight: function (step = 20) {
+        Hero.createPartOfTail();
         if( (parseInt(getComputedStyle(this.element).left) + step) > 480 ){
             this.element.style.left = '0px';
         }else{
@@ -44,6 +57,7 @@ const Hero = {
         };
     },
     moveDown: function (step = 20) {
+        Hero.createPartOfTail();
         if( (parseInt(getComputedStyle(this.element).top) + step) > 480 ){
             this.element.style.top = '0px';
         }else{
@@ -51,12 +65,24 @@ const Hero = {
         };
     },
     moveLeft: function (step = 20) {
+        Hero.createPartOfTail();
         if( (parseInt(getComputedStyle(this.element).left) - step) < 0 ){
             this.element.style.left = '480px';
         }else{
             this.element.style.left = (parseInt(getComputedStyle(this.element).left) - step) + 'px';
         };
     },
+    createPartOfTail: function () {
+
+        FIELD.append(document.createElement('div'));
+        FIELD.lastElementChild.classList.add('tail');
+        FIELD.lastElementChild.style.top = getComputedStyle(this.element).top;
+        FIELD.lastElementChild.style.left = getComputedStyle(this.element).left;
+
+        setTimeout(function(){
+            FIELD.children[1].remove();
+        }, (TIME_BETWEEN_STEPS * tailLength));
+    }
 }
 
 window.addEventListener("keydown", (e) => {
