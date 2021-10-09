@@ -73,6 +73,8 @@ const Hero = {
         return getComputedStyle(this.element).left;
     },
 
+    positionOfTailParts: [],
+
 
     moveUp: function (step = 20) {
         this.createPartOfTail();
@@ -123,9 +125,19 @@ const Hero = {
         FIELD.lastElementChild.style.top = getComputedStyle(this.element).top;
         FIELD.lastElementChild.style.left = getComputedStyle(this.element).left;
 
+        this.positionOfTailParts.push(FIELD.lastElementChild.style.top + ', ' + FIELD.lastElementChild.style.left)
+
         setTimeout(function(){
             FIELD.children[2].remove();
+            Hero.positionOfTailParts.shift();
+
         }, (TIME_BETWEEN_STEPS * tailLength));
+    },
+    
+    amIEatingMyself: function () {
+        if ( this.positionOfTailParts.includes(this.getPositionTop() + ', ' + this.getPositionLeft()) ) {
+            gameOver();
+        }
     }
 }
 
@@ -144,6 +156,9 @@ window.addEventListener("keydown", (e) => {
         Hero.moveUp();
 
         timerUpId = setInterval(() => {
+
+            Hero.amIEatingMyself();
+
             Hero.moveUp();
         }, TIME_BETWEEN_STEPS);
 
@@ -161,6 +176,9 @@ window.addEventListener("keydown", (e) => {
         Hero.moveRight();
 
         timerRightId = setInterval(() => {
+
+            Hero.amIEatingMyself();
+            
             Hero.moveRight();
         }, TIME_BETWEEN_STEPS);
         
@@ -178,6 +196,9 @@ window.addEventListener("keydown", (e) => {
         Hero.moveDown();
 
         timerDownId = setInterval(() => {
+
+            Hero.amIEatingMyself();
+            
             Hero.moveDown();
         }, TIME_BETWEEN_STEPS);
 
@@ -195,6 +216,9 @@ window.addEventListener("keydown", (e) => {
         Hero.moveLeft();
 
         timerLeftId = setInterval(() => {
+
+            Hero.amIEatingMyself();
+            
             Hero.moveLeft();
         }, TIME_BETWEEN_STEPS);
 
@@ -211,6 +235,20 @@ function startGame(){
     Hero.heroInCenter();
 
     Berries.createBarry();
+}
+
+function gameOver(){
+    clearInterval(timerUpId); 
+    clearInterval(timerRightId);
+    clearInterval(timerDownId);
+    clearInterval(timerLeftId);
+
+    
+
+    canPressUp    = false;
+    canPressRight = false;
+    canPressDown  = false;
+    canPressLeft  = false;
 }
 
 startGame();
