@@ -35,7 +35,7 @@ span {
     position: absolute;
     width: 20px;
     height: 20px;
-    background: rgb(165, 18, 18);
+    background: rgb(177, 30, 30);
     z-index: 1;
 }
 
@@ -45,6 +45,24 @@ span {
     width: 20px;
     height: 20px;
     position: absolute;
-    background: rgb(182, 121, 121);
+    background: rgb(92, 8, 8);
     z-index: 0;
+}
+
+.berryField {
+    padding: 0;
+    margin: 0;
+    width: 500px;
+    height: 500px;
+    position: relative;
+}
+
+.berry {
+    padding: 0;
+    margin: 5px 5px;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background: rgb(17, 88, 129);
+    border: 1px solid rgb(44, 15, 68);
 }
