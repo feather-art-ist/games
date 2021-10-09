@@ -11,7 +11,8 @@ Math.cbrt(); //кубический корень
 const FIELD = document.querySelector('.game');
 const TIME_BETWEEN_STEPS = 200; //ms
 
-let tailLength = 3; // also it is the score and also it is the starting length
+let startingLength = 3;
+let tailLength = startingLength; // also it is the score
 
 let canPressUp    = false,
     canPressRight = false,
@@ -19,6 +20,12 @@ let canPressUp    = false,
     canPressLeft  = false;
 
 let timerUpId, timerRightId, timerDownId, timerLeftId;
+
+const Score = {
+    plusOne: function () {
+        document.querySelector('.score').textContent = tailLength - startingLength;
+    }
+}
 
 const Berries = {
     top: null,
@@ -44,6 +51,8 @@ const Berries = {
             FIELD.children[1].lastElementChild.remove();
 
             this.createBarry();
+
+            Score.plusOne();
         }
     }
 }
@@ -119,7 +128,6 @@ const Hero = {
         }, (TIME_BETWEEN_STEPS * tailLength));
     }
 }
-
 
 window.addEventListener("keydown", (e) => {
     // console.log(e);
@@ -201,7 +209,8 @@ function startGame(){
     canPressLeft  = true;
 
     Hero.heroInCenter();
+
+    Berries.createBarry();
 }
 
 startGame();
-Berries.createBarry();
