@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Poppins:wght@200&display=swap');
+/* font-family: 'Comfortaa', cursive;
+   font-family: 'Poppins', sans-serif;
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(19, 38, 46);
+    /* background-color: rgb(58, 159, 172); */
+}
+
+#game {
+    display: table;
+    padding: 50px 50px 0px 50px;
+    margin: 5% auto 0 auto;
+    width: 300px;
+    box-shadow: inset -3px -3px 12px 0.5px rgba(255, 255, 255, 0.034), inset 3px 5px 14px 0.5px rgba(0, 0, 0, 0.164), -3px -3px 12px 0.5px rgba(255, 255, 255, 0.034), 3px 5px 14px 0.5px rgba(0, 0, 0, 0.164);
+    border-radius: 40px;
+}
+
+.word {
+    user-select: none;
+    white-space: nowrap;
+    background-color: rgb(19, 38, 46);
+    padding: 13px 20px 5px 20px;
+    margin: 0px 0px 60px 0px;
+    height: 60px;
+    min-width: 340px;
+    border-radius: 20px;
+    box-shadow: inset -3px -3px 9px 0.5px rgba(255, 255, 255, 0.034), inset 3px 5px 16px 0.5px rgba(0, 0, 0, 0.25);
+    font-family: 'Poppins', sans-serif;
+    color: rgba(153, 116, 16, 0.726);
+    text-align: center;
+    font-size: 30px;
+}
+
+.answer {
+    user-select: none;
+    padding: 10px 0px 0px 0px;
+    margin: 50px 0px;
+    height: 40px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: -3px -3px 9px 0.5px rgba(255, 255, 255, 0.034), 3px 5px 16px 0.5px rgba(0, 0, 0, 0.25);
+    font-family: 'Comfortaa', cursive;
+    color: rgba(25, 187, 179, 0.5);
+    text-align: center;
+    font-size: 25px;
+    transition: 300ms;
+}
+
+#newGame {
+    user-select: none;
+    padding: 10px 0px 0px 0px;
+    margin: 50px auto 0px auto;
+    width: 130px;
+    height: 30px;
+    box-shadow: -3px -3px 9px 0.5px rgba(255, 255, 255, 0.034), 3px 5px 14px 0.5px rgba(0, 0, 0, 0.25);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+    color: rgba(25, 187, 179, 0.5);
+    transition: 300ms;
+}
+
+.answer:hover{
+    /* color: rgba(21, 172, 164, 0.726); */
+    color: rgba(153, 116, 16, 0.726);
+}
+
+.answer:active{
+    color: rgba(19, 155, 151, 0.452);
+    box-shadow: inset -3px -3px 9px 0.5px rgba(255, 255, 255, 0.020), inset 3px 5px 6px 0.5px rgba(0, 0, 0, 0.104);
+}
+
+#newGame:hover{
+    color: rgba(21, 172, 164, 0.726);
+}
+
+#newGame:active{
+    color: rgba(19, 155, 151, 0.452);
+    box-shadow: inset -3px -3px 9px 0.5px rgba(255, 255, 255, 0.020), inset 3px 5px 6px 0.5px rgba(0, 0, 0, 0.104);
+}
+
+/* Чебурахин Михаил Василиевич
+0676934461
+
+1. абстрактная ландшафтная структура (модель мин = 150мм) картон на плоскостях
+2. лепка наболдашника трости в виде чел. черепа или трость в виде буквы "г" животная, фигура, человека, или фантазийного животного но в натуральный размер
+
+пластилин на водяной бане - пластификатор испаряется и пластилин становится жестким
+
+студийная сьемка загнутый ватман !!компановка!!
+
+арт стрит + конкурс под эгидой арх.
+
+стена возле арх. корпусов, конкурс, искусственное освещение, козырек
+
+печать презедента украина
+
+декор штандарта */
