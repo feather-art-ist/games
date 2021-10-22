@@ -1,4 +1,4 @@
-#SNAKE
+# SNAKE
 I created this file to work with events on a page.
 Now I have to do a few changes:
   - Possibilities (canPressUp, canPressRight, canPressDown, canPressLeft) should be in a object 'UserCan' or 'User'.
